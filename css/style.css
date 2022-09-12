@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
- :root {
+:root {
     --primary-color: #047aed;
     --secondary-color: #1c3fa8;
     --dark-color: #002240;
@@ -44,11 +44,23 @@ img {
     width: 100%;
 }
 
+code,
+pre {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.hidden {
+    visibility: hidden;
+    height: 0;
+}
+
 
 /* Navbar */
 
 .navbar {
-    background-color: var (--primary-color);
+    background-color: var(--primary-color);
     color: #fff;
     height: 70px;
 }
@@ -72,7 +84,7 @@ img {
 }
 
 
-/*Showcase */
+/* Showcase */
 
 .showcase {
     height: 400px;
@@ -132,6 +144,7 @@ img {
     content: '';
     position: absolute;
     height: 100px;
+    bottom: -70px;
     right: 0;
     left: 0;
     background: #fff;
@@ -142,7 +155,7 @@ img {
 }
 
 
-/* Stats*/
+/* Stats */
 
 .stats {
     padding-top: 100px;
@@ -164,7 +177,7 @@ img {
 }
 
 
-/* cli */
+/* Cli */
 
 .cli .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -172,12 +185,12 @@ img {
 }
 
 .cli .grid>*:first-child {
-    grid-column: 1/span 2;
-    grid-row: 1/span 2;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
 }
 
 
-/* cloud */
+/* Cloud */
 
 .cloud .grid {
     grid-template-columns: 4fr 3fr;
@@ -206,10 +219,67 @@ img {
 }
 
 
+/* Features */
+
+.features-head img,
+.docs-head img {
+    width: 200px;
+    justify-self: flex-end;
+}
+
+.features-sub-head img {
+    width: 300px;
+    justify-self: flex-end;
+}
+
+.features-main .card>i {
+    margin-right: 20px;
+}
+
+.features-main .grid {
+    padding: 30px;
+}
+
+.features-main .grid>*:first-child {
+    grid-column: 1 / span 3;
+}
+
+.features-main .grid>*:nth-child(2) {
+    grid-column: 1 / span 2;
+}
+
+
+/* Docs */
+
+.docs-main h3 {
+    margin: 20px 0;
+}
+
+.docs-main .grid {
+    grid-template-columns: 1fr 2fr;
+    align-items: flex-start;
+}
+
+.docs-main nav li {
+    font-size: 17px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px #ccc solid;
+}
+
+.docs-main a:hover {
+    font-weight: bold;
+}
+
+
 /* Footer */
 
 .footer .social a {
     margin: 0 10px;
+}
+
+.fa-github:hover {
+    color: #000000;
 }
 
 .fa-facebook:hover {
@@ -260,5 +330,71 @@ img {
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+
+/* Tablets and under */
+
+@media (max-width: 768px) {
+    .grid,
+    .showcase .grid,
+    .stats .grid,
+    .cli .grid,
+    .cloud .grid,
+    .features-main .grid,
+    .docs-main .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    .showcase {
+        height: auto;
+    }
+    .showcase-text {
+        text-align: center;
+        margin-top: 40px;
+        animation: slideInFromTop 1s ease-in;
+    }
+    .showcase-form {
+        justify-self: center;
+        margin: auto;
+        animation: slideInFromBottom 1s ease-in;
+    }
+    .cli .grid>*:first-child {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .features-head,
+    .features-sub-head,
+    .docs-head {
+        text-align: center;
+    }
+    .features-head img,
+    .features-sub-head img,
+    .docs-head img {
+        justify-self: center;
+    }
+    .features-main .grid>*:first-child,
+    .features-main .grid>*:nth-child(2) {
+        grid-column: 1;
+    }
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+    .navbar {
+        height: 110px;
+    }
+    .navbar .flex {
+        flex-direction: column;
+    }
+    .navbar ul {
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    .showcase-form {
+        width: 300px;
     }
 }
